@@ -8,10 +8,12 @@ class Screen
   def initialize(width, height)
     @widht = width
     @height = height
+    @matrix = 
   end
 
   # Insert a Pixel at x, y
   def insert(pixel, x, y)
+
   end
 
   def at(x, y)

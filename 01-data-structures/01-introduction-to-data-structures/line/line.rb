@@ -43,6 +43,8 @@ class Line
     members.each do |member|
       if person == member
         return number
+      else
+        number += 1
       end
     end
   end
