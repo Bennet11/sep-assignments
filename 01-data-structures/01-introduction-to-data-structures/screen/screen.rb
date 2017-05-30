@@ -6,7 +6,7 @@ class Screen
   attr_accessor :matrix
 
   def initialize(width, height)
-    @widht = width
+    @width = width
     @height = height
     @matrix = [[width],[height]]
   end
@@ -30,10 +30,10 @@ class Screen
 
   def inbounds(x, y)
     inside = true;
-    if x < 0 && x > @width
+    if x < 0 || x > @width
       inside = false
     end
-    if y < 0 && y > @height
+    if y < 0 || y > @height
       inside = false
     end
     return inside
