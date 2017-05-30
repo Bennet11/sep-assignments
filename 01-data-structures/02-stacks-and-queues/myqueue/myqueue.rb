@@ -6,22 +6,29 @@ class MyQueue
     @queue = Array.new
     @head = @queue[0]
     @tail = @queue[0]
-    @tailNum = -1
+    @count = 0
   end
 
   def enqueue(element)
-    @queue[tailNum] = element
-    @head = @queue[0]
-    @tail = @queue[tailNum]
-    @tailCount += 1
+    @queue[@count] = element
+    @tail = @queue[@count]
+
+    if @count == 0
+      @head = @queue[@count]
+    end
+    @count += 1
   end
 
   def dequeue
     temp = @head
+    @count -= 1
+    
+    @queue[@count] = nil
     @head = @queue[0]
-    @queue[tailNum] = nil
-    @tailNum -= 1
 
+    if @count <= 1
+      @tail = @queue[0]
+    end
     return temp
   end
 

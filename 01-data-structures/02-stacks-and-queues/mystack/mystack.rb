@@ -15,13 +15,14 @@ class MyStack
 
   def pop
     temp = @top
+    @stack[@num] = nil
     @num -= 1
     @top = @stack[@num]
     return temp
   end
 
   def empty?
-    if @num <= 0
+    if @num < 0
       return true
     else
       return false

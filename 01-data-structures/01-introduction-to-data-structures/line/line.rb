@@ -34,6 +34,7 @@ class Line
         return member
       end
     end
+    return nil
   end
 
   private

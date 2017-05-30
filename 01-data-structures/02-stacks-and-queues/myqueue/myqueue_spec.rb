@@ -6,13 +6,13 @@ RSpec.describe MyQueue, type: Class do
   let(:q) { MyQueue.new }
 
   describe "#enqueue" do
-    it "pushes an item into the head of the queue" do
+    it "pushes an item to the end of the queue" do
       q.enqueue("Rob")
       expect(q.head).to eq "Rob"
       expect(q.tail).to eq "Rob"
       q.enqueue("Ben")
-      expect(q.head).to eq "Ben"
-      expect(q.tail).to eq "Rob"
+      expect(q.head).to eq "Rob"
+      expect(q.tail).to eq "Ben"
     end
   end
 
@@ -29,8 +29,8 @@ RSpec.describe MyQueue, type: Class do
       expect(q.head).to eq "Rob"
       expect(q.tail).to eq "Rob"
       q.enqueue("Ben")
-      expect(q.head).to eq "Ben"
-      expect(q.tail).to eq "Rob"
+      expect(q.head).to eq "Rob"
+      expect(q.tail).to eq "Ben"
     end
   end
 
