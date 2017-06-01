@@ -1,0 +1,10 @@
+1.) Spatial locality refers to the use of data elements within relatively close storage locations. Sequential locality, a special case of spatial locality, occurs when data elements are arranged and accessed linearly, such as, traversing the elements in a one-dimensional array.
+Spacial benefits performance since it lessens the time a computer iterates over data which are close to another instead of iterating over the same datas again and again.
+2.) On the examples shown below, the performance using an array is faster than a linked_list
+
+    Push 10k items to the array  0.000000   0.000000   0.000000 (  0.004432)
+    Append 10k items to My List  0.010000   0.000000   0.010000 (  0.008821)
+    5000th element of the array  0.000000   0.000000   0.000000 (  0.000005)
+    5000th element of My List  0.000000   0.000000   0.000000 (  0.000646)
+    remove 5000th element of the array  0.000000   0.000000   0.000000 (  0.000012)
+    remove 5000th item on My List  0.000000   0.000000   0.000000 (  0.001130)

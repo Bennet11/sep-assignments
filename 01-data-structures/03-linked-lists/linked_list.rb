@@ -21,6 +21,10 @@ class LinkedList
       @head = nil
       @tail = nil
     else
+      node = @head
+      while ((node != nil) && (node.next != @tail)) do
+        node = node.next
+      end
       @tail = node
       @tail.next = nil
     end
@@ -37,12 +41,20 @@ class LinkedList
 
   # This method removes `node` from the list and must keep the rest of the list intact.
   def delete(node)
-    if @head == node
-      remove_front
-    elsif @tail == node
-      remove_tail
-    else
-      
+    if @head != nil
+      if @head == node
+        remove_front
+      elsif @tail == node
+        remove_tail
+      else
+        temp = @head
+        while temp != nil && temp.next != node
+          temp = temp.next
+        end
+        if temp.next == node
+          temp.next = temp.next.next
+        end
+      end
     end
   end
 
@@ -65,5 +77,13 @@ class LinkedList
       node = @head.next
       @head = node
     end
+  end
+
+  def find_node(data)
+    node = @head
+    while node != nil && node.data != data do
+      node = node.next
+    end
+    return node
   end
 end
