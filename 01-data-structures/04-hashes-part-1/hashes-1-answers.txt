@@ -1,0 +1,1 @@
+1. Doubling the size of the array doubles the memory it consumes making it more prone to fragmentation than a regulated one. So with more instance of fragmentation comes with higher reduction in performance, capacity or both.
