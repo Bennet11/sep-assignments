@@ -11,16 +11,16 @@ class HashClass
       @items[i] = item
     elsif @items[i].key != item.key
       self.resize
-      item[key] = value
+      self[key] = value
     elsif @items[i].value != item.value
       self.resize
-      @items[index(item.key, size)] = value
+      @items[i] = value
     end
   end
 
 
   def [](key)
-    
+    @items[self.index(key, self.size)].value
   end
 
   def resize
