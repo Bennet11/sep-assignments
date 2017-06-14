@@ -2,32 +2,32 @@ class HashClass
 
   def initialize(size)
     @items = Array.new(size)
+    @size = size
   end
 
   def []=(key, value)
     item = HashItem.new(key, value)
-    i = index(key, size)
-    if @items[i] == nil
-      @items[i] = item
-    elsif @items[i].key != item.key
-      self.resize
-      self[key] = value
-    elsif @items[i].value != item.value
-      self.resize
-      @items[i] = value
+    i = index(key, @size)
+
+    while @items[i] != nil && value != @items[i].value
+      resize
     end
+    @items[i] = item
   end
 
 
   def [](key)
-    @items[self.index(key, self.size)].value
+    @items[index(key, @size)].value
   end
 
   def resize
     old_items = @items.compact
-    @items = Array.new(self.size * 2)
+    @size = @size * 2
+    @items = Array.new(@size)
+
     old_items.each do |item|
-      self[item.key] = item.value
+      i = index(item.key, @size)
+      @items[i] = item
     end
   end
 
