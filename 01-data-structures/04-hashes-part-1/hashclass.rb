@@ -9,15 +9,10 @@ class HashClass
     item = HashItem.new(key, value)
     i = index(key, @size)
 
-    if @items[i].nil?
-      @items[i] = item
-    elsif @items[i].key != item.key
+    while @items[i] != nil && value != @items[i].value
       resize
-      @items[i] = item
-    elsif @items[i].key == item.key && @items[i].value != item.value
-      resize
-      @items[i] = item
     end
+    @items[i] = item
   end
 
 
