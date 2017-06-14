@@ -60,7 +60,7 @@ class LinkedList
 
   # This method adds `node` to the front of the list and must set the list's head to `node`.
   def add_to_front(node)
-    if @head == nil?
+    if @head == nil
       @head = node
     else
       node.next = @head
