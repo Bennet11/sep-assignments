@@ -1,4 +1,5 @@
 require_relative 'linked_list'
+require_relative 'node'
 
 class SeparateChaining
   attr_reader :max_load_factor
@@ -6,14 +7,41 @@ class SeparateChaining
   def initialize(size)
     @max_load_factor = 0.7
     @size = size
+    @entry_count = 0.0
     @lists = Array.new(@size)
   end
 
   def []=(key, value)
+    node = Node.new(key, value)
+    i = index(key, @size)
 
+    if @lists[i] == nil
+      list = LinkedList.new
+    else
+      @lists[i] = list
+      @lists[i].add_to_tail(node)
+    end
+
+    @entry_count += 1
+    
+    if load_factor >= @max_load_factor
+      resize
+    end
   end
 
   def [](key)
+    idx = index(key, @size)
+    (idx...(idx + @size)).each do |i|
+
+      if i >= @size
+        i = i % @size
+      end
+
+      node = @nodes[i]
+      if key == node.key
+        return node.value
+      end
+    end
   end
 
   # Returns a unique, deterministically reproducible index into an array
@@ -25,6 +53,7 @@ class SeparateChaining
 
   # Calculate the current load factor
   def load_factor
+    @entry_count / @size
   end
 
   # Simple method to return the number of items in the hash
@@ -34,7 +63,7 @@ class SeparateChaining
 
   # Resize the hash
   def resize
-    old_list = @list.compact
+    old_list = @lists.compact
     @size = @size * 2
     @lists = Array.new(@size)
 
