@@ -23,23 +23,22 @@ class SeparateChaining
     end
 
     @entry_count += 1
-    
-    if load_factor >= @max_load_factor
+
+    if load_factor > @max_load_factor
       resize
     end
   end
 
   def [](key)
-    idx = index(key, @size)
-    (idx...(idx + @size)).each do |i|
+    i = index(key, @size)
+    if @lists[i] != nil
+      currentList = @lists[i].head
+      while currentList.next != nil
+        if currentList.key == key
+          return currentList.value
+        end
 
-      if i >= @size
-        i = i % @size
-      end
-
-      node = @nodes[i]
-      if key == node.key
-        return node.value
+          currentList = currentList.next
       end
     end
   end
