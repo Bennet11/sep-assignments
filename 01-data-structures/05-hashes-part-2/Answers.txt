@@ -1,0 +1,16 @@
+1. Robin Hood Hashing:
+With Robin Hood Hashing, a new key may displace a key already inserted if its probe count is larger than that of the key at the current position.
+The net effect of this is that it reduces worst case search times in the table. This is similar to ordered hash tables except that the criterion
+for bumping a key does not depend on the direct relationship between the keys.
+
+2. 2-choice hashing:
+2-choice hashing employs two different hashing functions, both hash functions are used to compute two table locations. When an object is inserted
+in the table, then it is placed in the table location that contains fewer objects.
+
+3. Coalesced hashing:
+A hybrid of chain and open addressing, coalesced hashing links together chains of nodes within the table itself. Like open addressing, it achieves
+space usage and cache advantages over chaining. Like chaining, it does not exhibit clustering effects; in fact, the table can be efficiently filled
+to a high density. Unlike chaining, it cannot have more elements than table slots.
+
+Own resolution:
+When a collision occurs, a combination of robin hood hashing and separate chaining. With this, robin hood hashing will group small or big elements to maintain balance among indexes and thus maximizing space. 

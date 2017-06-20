@@ -1,5 +1,4 @@
 require_relative 'linked_list'
-require_relative 'node'
 
 class SeparateChaining
   attr_reader :max_load_factor
@@ -17,11 +16,10 @@ class SeparateChaining
 
     if @lists[i] == nil
       list = LinkedList.new
-    else
-      @lists[i] = list
-      @lists[i].add_to_tail(node)
     end
 
+    @lists[i] = list
+    @lists[i].add_to_tail(node)
     @entry_count += 1
 
     if load_factor > @max_load_factor
@@ -37,7 +35,6 @@ class SeparateChaining
         if currentList.key == key
           return currentList.value
         end
-
           currentList = currentList.next
       end
     end
@@ -69,6 +66,14 @@ class SeparateChaining
     old_list.each do |list|
       i = index(key, @size)
       @lists[i] = list
+    end
+  end
+
+  def print
+    for i in 0..size-1
+      if @lists[i] != nil
+        puts "#{@lists[i]}"
+      end
     end
   end
 end

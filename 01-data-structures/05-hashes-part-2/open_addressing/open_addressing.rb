@@ -73,4 +73,10 @@ class OpenAddressing
       @nodes[i] = node
     end
   end
+
+  def print
+    for i in 0..size-1 do
+      puts "Hash: #{index(@nodes[i].key, @size)} -> Index: #{i} -> key: #{@nodes[i].key} -> Value: #{nodes[i].value}"
+    end
+  end
 end
