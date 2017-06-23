@@ -14,24 +14,27 @@ class SeparateChaining
     node = Node.new(key, value)
     i = index(key, @size)
 
-    if @lists[i] == nil
+    if @lists[i].nil?
       list = LinkedList.new
+    else
+      list = @lists[i]
     end
 
+    list.add_to_tail(node)
     @lists[i] = list
-    @lists[i].add_to_tail(node)
     @entry_count += 1
 
-    if load_factor > @max_load_factor
+    if load_factor.to_f > @max_load_factor.to_f
       resize
     end
   end
 
   def [](key)
     i = index(key, @size)
-    if @lists[i] != nil
-      currentList = @lists[i].head
-      while currentList.next != nil
+    list = @lists[i]
+    if list != nil
+      currentList = list.head
+      while currentList != nil
         if currentList.key == key
           return currentList.value
         end
@@ -64,8 +67,15 @@ class SeparateChaining
     @lists = Array.new(@size)
 
     old_list.each do |list|
-      i = index(key, @size)
-      @lists[i] = list
+      curr = list.head
+      i = index(curr.key, @size)
+
+      while curr != nil
+        list = LinkedList.new
+        list.add_to_tail(curr)
+        @lists[i] = list
+        curr = curr.next
+      end
     end
   end
 

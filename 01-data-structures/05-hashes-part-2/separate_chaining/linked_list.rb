@@ -8,6 +8,7 @@ class LinkedList
   def add_to_tail(node)
     if @head == nil
       @head = node
+      @tail = node
     else
       @tail.next = node
       @tail = @tail.next
