@@ -7,21 +7,50 @@ class MinBinaryHeap
   end
 
   def insert(root, node)
-    if root.rating > node.rating
-      if root.left.nil?
-        root.left = node
-      else
-        insert(root.left, node)
-      end
+    current_node = root
+    parent_node = insert_heap(current_node, node)
+    while parent_node > node.rating
+      node = swap(parent_node, node)
+      parent_node = node.parent
+    end
+  end
+
+  def insert_heap(current_node, new_node)
+    if current_node.left == nil
+      current_node.left = new_node
+      return current_node
+    elsif current_node.right == nil
+      current_node.right = new_node
+      return current_node
     else
-      if root.right.nil?
-        root.right = node
-      else
-        insert(root.right, node)
+      queue = []
+      queue.push(current_node)
+      while queue.size != 0
+        queue.shift
+        if node.left.left == nil || node.left.right == nil
+          insert(current_node, node.left)
+        elsif node.right.left == nil || node.right.right == nil
+          insert(current_node, node.right)
+        else
+          queue.push(current_node.left)
+          queue.push(current_node.right)
+        end
       end
     end
   end
 
+  def swap(parent_node, new_node)
+
+    temp_l = new_node.left
+    temp_r = new_node.right
+
+    if temp_l == new_node
+      temp_l = parent_node
+    elsif temp_r == new_node
+      temp_l = temp_r
+      parent_node = temp_l
+    end
+  end
   # Recursive Depth First Search
   def find(root, data)
     if root == nil || data == nil
