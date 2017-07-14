@@ -9,7 +9,7 @@ class MinBinaryHeap
   def insert(root, node)
     current_node = root
     parent_node = insert_heap(current_node, node)
-    while parent_node > node.rating
+    while parent_node.ratings > node.rating
       node = swap(parent_node, node)
       parent_node = node.parent
     end
@@ -18,19 +18,21 @@ class MinBinaryHeap
   def insert_heap(current_node, new_node)
     if current_node.left == nil
       current_node.left = new_node
+      new_node.parent = current_node
       return current_node
     elsif current_node.right == nil
       current_node.right = new_node
+      new_node.parent = current_node
       return current_node
     else
       queue = []
       queue.push(current_node)
       while queue.size != 0
-        queue.shift
+        node = queue.shift
         if node.left.left == nil || node.left.right == nil
-          insert(current_node, node.left)
+          return insert_heap(node.left, new_node)
         elsif node.right.left == nil || node.right.right == nil
-          insert(current_node, node.right)
+          return insert_heap(node.right, new_node)
         else
           queue.push(current_node.left)
           queue.push(current_node.right)
@@ -39,17 +41,36 @@ class MinBinaryHeap
     end
   end
 
-  def swap(parent_node, new_node)
 
-    temp_l = new_node.left
-    temp_r = new_node.right
+  def swap(parent_node, child_node)
 
-    if temp_l == new_node
-      temp_l = parent_node
-    elsif temp_r == new_node
-      temp_l = temp_r
-      parent_node = temp_l
+    temp_l = child_node.left
+    temp_r = child_node.right
+
+    if parent_node.left == child_node
+      child_node.left = parent_node
+
+      if parent_node.right
+        child_node.right = parent_node.right
+        child_node.right.parent = child_node
+      end
+    else
+      child_node.left = parent_node
+      child_node.right = parent_node.left
+      parent_node.left.parent = child_node
     end
+
+    child_node.parent = parent_node.parent
+    if child_node.parent.left == parent_node
+      child_node.parent.left = child_node
+    else
+      child_node.parent.right = child_node
+    end
+
+    parent_node.parent = child_node
+    parent_node.left = temp_l
+    parent_node.right = temp_r
+    return child_node
   end
   # Recursive Depth First Search
   def find(root, data)
@@ -59,28 +80,34 @@ class MinBinaryHeap
       if root.title == data
         return root
       elsif root.left != nil
-        find(root.left, data)
+        return find(root.left, data)
       elsif root.right != nil
-        find(root.right, data)
+        return find(root.right, data)
       end
     end
   end
 
   def delete(root, data)
+    if data == nil
+      return nil
+    end
+
     target_node = find(root, data)
     if target_node == nil
       return nil
     else
-      target_node.title = nil
-      target_node.rating = nil
+      node_parent = target_node.parent
+      if node_parent.left == target_node
+        target_node.left = nil
+      elsif node_parent.right == target_node
+        target_node.right = nil
+      end
     end
-
   end
 
   # Recursive Breadth First Search
   def printf(children=nil)
     queue = [@root]
-    result = []
     while queue.length > 0
       new_root = queue.shift
       if new_root.left != nil
@@ -89,10 +116,7 @@ class MinBinaryHeap
       if new_root.right != nil
         queue.push(new_root.right)
       end
-      result.push("#{new_root.title}: #{new_root.rating}")
-    end
-    result.each do |r|
-      puts r
+      puts "#{new_root.title}: #{new_root.rating}"
     end
   end
 end
