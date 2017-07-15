@@ -112,4 +112,3 @@ class MinBinaryHeap
     return child_node
   end
 end
-

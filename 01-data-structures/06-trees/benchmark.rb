@@ -6,18 +6,19 @@ treeRoot = Node.new("tree root", 80)
 heapRoot = Node.new("heap root", 80)
 search_tree = BinarySearchTree.new(treeRoot)
 min_heap = MinBinaryHeap.new(heapRoot)
-num = 10000
+
+n = 100000
 
 Benchmark.bm do |bm|
   bm.report("tree insert") do
-    for i in 1..num do
-      new_node = Node.new("tree", Random.rand(10000))
+    for i in 1..n do
+      new_node = Node.new("tree", Random.rand(100000))
       search_tree.insert(treeRoot, new_node)
     end
   end
   bm.report("heap insert") do
-    for i in 1..num do
-      new_node = Node.new("heap", Random.rand(10000))
+    for i in 1..n do
+      new_node = Node.new("heap", Random.rand(100000))
       min_heap.insert(heapRoot, new_node)
     end
   end
