@@ -5,7 +5,6 @@ class Film
 
   def initialize(name)
     @name = name
-    @cast = name_array
-    @movie = film_array
+    @cast = Array.new
   end
 end
