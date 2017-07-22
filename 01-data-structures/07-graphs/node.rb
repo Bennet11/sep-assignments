@@ -8,6 +8,5 @@ class Node
     @film_actor_hash = Hash.new()
     @path_array = []
     @visited = false
-
   end
 end
