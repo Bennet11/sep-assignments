@@ -10,7 +10,7 @@ class Film
   end
 
   def set_film_actor_hash(cast)
-    cast.each  do |actor|
+    cast.each do |actor|
       other_cast = @cast.clone
       other_cast.delete(actor)
       actor.film_actor_hash[@name] = other_cast

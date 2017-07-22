@@ -3,6 +3,6 @@ class Node
 
   def initialize(name)
     @name = name
-    @film_actor_hash = Hash.new()
+    @film_actor_hash = Hash.new
   end
 end
