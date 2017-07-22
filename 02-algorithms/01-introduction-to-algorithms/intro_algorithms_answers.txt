@@ -1,0 +1,22 @@
+Getting to work:
+Wake Up
+Go to kitchen and look for food
+Go to the Bathroom
+Dress Up
+Drive to Work
+
+Determining What to wear:
+while color === "blue"
+  if size == fits
+    return "wear shirt"
+  end
+end
+
+Calculating a tip
+if convenience == good
+  puts "5$"
+elsif convenience == excellent
+  puts "100$"
+else
+  puts "2$"
+end
