@@ -1,0 +1,9 @@
+1. I'll be iterating 7 times using linear search.
+2. I'll be iterating 3 times with binary search.
+3.
+fib(10) = 0 + 1 + (1 + 0) + (1 + 1) + (2 + 3) + (3 + 5) + (5 + 8) + (8 + 13) + (13 + 21) + (21 + 34) = 55
+fib(11) = 89
+fib(12) = 144
+4. I would use binary search. Since it will take a serious amount of time with linear search, while as with binary search, it can eliminate items that doesn't conform to the conditions stated in a function.
+I Would also use iterative solution. Although iterative might sometimes be lengthy, it usually runs faster than a recursive and takes less space than a recursive.
+5. I would use a binary search again. With a million items, linear search will take an even more serious amount of time as to binary search which will eliminate items. Again, an iterative solution would be a better option since it is faster than a recursive and takes less space.
