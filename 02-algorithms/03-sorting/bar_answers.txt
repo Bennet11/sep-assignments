@@ -1,0 +1,7 @@
+user     system      total        real
+quick_sort  0.000000   0.000000   0.000000 (  0.000100)
+heap_sort  0.000000   0.000000   0.000000 (  0.000217)
+bucket_sort  0.000000   0.000000   0.000000 (  0.000507)
+
+I believe the complexity of the heap sort and bucket sort affects the performance itself. Quick sort is direct to the point in sorting. It only performs a handful of
+steps to complete the sorting as opposed to heap and bucket sort which runs other organizational work/grouping methods other than the sorting itself.
