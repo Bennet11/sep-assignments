@@ -1,0 +1,17 @@
+1. O(1) would be that of the speed of a light while as O(2^n) would be the speed of me completing a lap on a track field.
+2. The best case scenario in a binary search is when array[mid] would be the item we are looking for.
+3. The worst case in a binary search would be the time we realized that the item is not listed inside the array.
+4. The bounded case scenario for a binary search is by the time a division of the array has already taken in place and were looking for the item on the half part of the array where it is believed
+to be included.
+5. https://docs.google.com/spreadsheets/d/16pImmy9erveSww44gfbLkYVtLQ01M9GHs4YdCoBRGs4/edit?usp=sharing
+6. positive infinite?
+7. O(n^2) since every increase in n, f(n) doubles in size.
+8. def iteration(array)
+    array.each do |index, value|
+      print "n: index, y: #{value ** 2}"
+    end
+   end
+9. same with number 5
+10. O(n)
+11. Omega(1)
+12. 0(log(n))
