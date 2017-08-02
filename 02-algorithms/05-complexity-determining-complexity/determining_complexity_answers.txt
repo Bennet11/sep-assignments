@@ -1,0 +1,10 @@
+1. O(1) or constant time since the time to execute this function will be the same regardless of n
+2. O(n) or linear time with this function, with largest set to 0 any item equal or larger than it will
+execute largest with the same rate depending on the size of the collection.
+3. O(n) or linear time. Even though this problem presents collections and sub collections, it still depends upon the size of the collection without any recursive functions.
+So, for every increase in size the time to execute it increases at the same rate.
+4. O(2^n) or exponential time given that this function recursively calls on itself with "return numbers(n-1) + numbers(n-2)", results to increment
+on its size until it reaches back to either 1 or 0. With each increment, the size grows exponentially with it.
+5. O(n) or linear time. This function depends upon the size of n. So for every increase in n the time it takes to execute the algorithm increases
+at the same rate.
+6. O(n^2) this being a quick sort,
