@@ -1,4 +1,4 @@
-def poorly_written_ruby(*arrays)
+def poorly_written_ruby_one(*arrays)
   combined_array = []
   arrays.each do |array|
    combined_array.push(array.value)
