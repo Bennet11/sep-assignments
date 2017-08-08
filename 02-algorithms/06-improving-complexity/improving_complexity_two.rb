@@ -1,7 +1,7 @@
 def poorly_written_ruby_two(*arrays)
   combined_array = []
   arrays.each do |array|
-   combined_array.insert(array.value)
+   combined_array += array
   end
 
   def merge_sort(combined_array)

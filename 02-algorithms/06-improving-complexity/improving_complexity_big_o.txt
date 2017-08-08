@@ -1,0 +1,18 @@
+complexity one array one  0.020000   0.000000   0.020000 (  0.016232)
+complexity one array two  0.410000   0.000000   0.410000 (  0.410922)
+complexity one array three  1.730000   0.020000   1.750000 (  1.770090)
+complexity two array one  0.000000   0.000000   0.000000 (  0.000017)
+complexity two array two  0.000000   0.000000   0.000000 (  0.000092)
+complexity two array three  0.000000   0.000000   0.000000 (  0.000054)
+complexity three array one  0.000000   0.000000   0.000000 (  0.000015)
+complexity three array two  0.000000   0.000000   0.000000 (  0.000053)
+complexity three array three  0.000000   0.000000   0.000000 (  0.000076)
+
+1. complexity one big O would be O(n^2) since the combining of arrays would take O(n) time
+and for sorting the arrays, it would again take another O(n) time thus making it O(n^2).
+
+2. second would be O(nlog(n)), it being merge sort, we divide the array into two sub arrays giving us
+log(n) time. Afterwards, we merge the two sub arrays to form a single and sorted array with O(n) time giving us
+O(nlog(n)).
+
+3. Insertion sort, moves the objects in the collection within the array one at a time. giving us a constant time or O(1).
