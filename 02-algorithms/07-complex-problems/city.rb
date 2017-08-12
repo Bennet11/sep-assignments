@@ -1,10 +1,10 @@
 class City
   attr_accessor :name, :visited, :neighbors, :distance
 
-  def initialize
+  def initialize(name, distance, neighbors)
     @name = name
     @distance = distance
-    @neighbors = neighbors
     @visited = false
+    @neighbors = nil
   end
 end
