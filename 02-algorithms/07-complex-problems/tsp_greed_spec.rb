@@ -2,7 +2,7 @@ require_relative 'city'
 require_relative 'tsp_greed'
 
 Rspec.describe "tsp_greed" do
-  let(:home) { City.new("Sacrament", 0) }
+  let(:home) { City.new("Sacramento", 0) }
   let(:los_angeles) { City.new("Los Angeles", 386) }
   let(:chicago) { City.new("Chicago", 2044) }
   let(:seattle) { City.new("Seattle", 752) }
