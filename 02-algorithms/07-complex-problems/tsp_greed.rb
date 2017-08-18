@@ -2,18 +2,21 @@ require_relative 'city'
 
 def nearest_city(graph_of_cities, current_city)
   while !current_city.visited
-    neighbor_cities = current_city.neighbors
-    next_city = neighbor_cities[0]
+    next_city = current_city.neighbors[0]
+    distance_to_next_city = next_city[1]
 
-    neighbor_cities.each do |current_neighbor|
-      if current_neighbor[1] < next_city[1] && !current_neighbor[0].visited
+    current_city.neighbors.each do |current_neighbor|
+      current_neighbor_city = current_neighbor[0]
+      distance_to_current_neighbor = current_neighbor[1]
+
+      if distance_to_current_neighbor < distance_to_next_city && !current_neighbor_city.visited
         next_city = current_neighbor
       end
     end
 
     current_city.visited = true
     if !next_city[0].visited
-      current_city = graph_of_cities[next_city[0]]
+      current_city = graph_of_cities[next_city[0].name]
     end
   end
   current_city
