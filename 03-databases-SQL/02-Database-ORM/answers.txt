@@ -22,7 +22,7 @@ method, or complete the code in a way that we will connect it to the database cr
 
 8. def snake(snake_word)
     string = snake_word.gsub(/::/, '/')
-    string.gsub!((), )
+    string.gsub!(/_[a-z])/, capitalize)
   end
 
 9. def find_by(attribute, value)
